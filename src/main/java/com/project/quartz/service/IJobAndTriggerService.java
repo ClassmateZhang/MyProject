@@ -1,9 +1,7 @@
 package com.project.quartz.service;
 
 import com.github.pagehelper.PageInfo;
-import com.project.quartz.entity.JobAndTrigger;
-import com.project.quartz.entity.QrtzJobDetails;
-import org.springframework.stereotype.Service;
+import com.project.quartz.entity.QrtzJobDetailsEntity;
 
 /**
  * @ Author     ：zhangcx
@@ -13,5 +11,5 @@ import org.springframework.stereotype.Service;
  * @Version: $version$
  */
 public interface IJobAndTriggerService {
-    public PageInfo<QrtzJobDetails> getJobAndTriggerDetails(int pageNum, int pageSize);
+    public PageInfo<QrtzJobDetailsEntity> getJobAndTriggerDetails(int pageNum, int pageSize);
 }

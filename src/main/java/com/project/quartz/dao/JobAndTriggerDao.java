@@ -1,6 +1,6 @@
 package com.project.quartz.dao;
 
-import com.project.quartz.entity.QrtzJobDetails;
+import com.project.quartz.entity.QrtzJobDetailsEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -10,5 +10,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @ Modified By：
  * @Version: $version$
  */
-public interface JobAndTriggerDao extends JpaRepository<QrtzJobDetails,Long> {
+public interface JobAndTriggerDao extends JpaRepository<QrtzJobDetailsEntity,Long> {
 }

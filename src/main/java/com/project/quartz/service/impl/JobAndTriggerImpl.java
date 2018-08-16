@@ -51,9 +51,6 @@ public class JobAndTriggerImpl implements IJobAndTriggerService {
         for (Object obj : rows) {
             Map row = (Map) obj;
             JobAndTrigger jobAndTrigger = new JobAndTrigger();
-            System.out.println("JOB_NAME = " + row.get("JOB_NAME"));
-            System.out.println("JOB_GROUP = " + row.get("JOB_GROUP"));
-            System.out.println("JOB_CLASS_NAME = " + row.get("JOB_CLASS_NAME"));
             jobAndTrigger.setCRON_EXPRESSION(row.get("CRON_EXPRESSION")+"");
             jobAndTrigger.setJOB_CLASS_NAME(row.get("JOB_CLASS_NAME")+"");
             jobAndTrigger.setJOB_GROUP(row.get("JOB_GROUP")+"");

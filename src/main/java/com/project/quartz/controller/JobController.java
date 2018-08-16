@@ -33,7 +33,13 @@ public class JobController {
 
     private static Logger log = LoggerFactory.getLogger(JobController.class);
 
-
+    /**
+     * 添加定时任务
+     * @param jobClassName   要使用类的全名“com.project.quartz.job.***”
+     * @param jobGroupName
+     * @param cronExpression
+     * @throws Exception
+     */
     @PostMapping(value="/addjob")
     public void addjob(@RequestParam(value="jobClassName")String jobClassName,
                        @RequestParam(value="jobGroupName")String jobGroupName,

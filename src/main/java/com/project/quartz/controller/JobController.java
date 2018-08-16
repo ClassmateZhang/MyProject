@@ -1,7 +1,7 @@
 package com.project.quartz.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.project.quartz.entity.QrtzJobDetailsEntity;
+import com.project.quartz.entity.JobAndTrigger;
 import com.project.quartz.job.BaseJob;
 import com.project.quartz.service.IJobAndTriggerService;
 import org.quartz.*;
@@ -143,7 +143,7 @@ public class JobController {
     @GetMapping(value="/queryjob")
     public Map<String, Object> queryjob(@RequestParam(value="pageNum")Integer pageNum, @RequestParam(value="pageSize")Integer pageSize)
     {
-        PageInfo<QrtzJobDetailsEntity> jobAndTrigger = iJobAndTriggerService.getJobAndTriggerDetails(pageNum, pageSize);
+        PageInfo<JobAndTrigger> jobAndTrigger = iJobAndTriggerService.getJobAndTriggerDetails(pageNum, pageSize);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("JobAndTrigger", jobAndTrigger);
         map.put("number", jobAndTrigger.getTotal());

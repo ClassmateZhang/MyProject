@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @ Author     ：zhangcx
@@ -30,13 +31,14 @@ public class UserDaoTests {
         Date date = new Date();
         DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
         String formattedDate = dateFormat.format(date);
-
-        userRepository.save(new User("aa4", "aa@126.com", "aa", "aa123456",formattedDate));
-        userRepository.save(new User("bb5", "bb@126.com", "bb", "bb123456",formattedDate));
-        userRepository.save(new User("cc6", "cc@126.com", "cc", "cc123456",formattedDate));
-        Thread.sleep(5000);
-        Assert.assertEquals(9, userRepository.findAll().size());
-        Assert.assertEquals("bb", userRepository.findByUserNameOrEmail("bb", "cc@126.com").getNickName());
+        List<User> list = userRepository.findAll();
+        System.out.println("数量——————————————————————"+list.size());
+        //userRepository.save(new User("aa4", "aa@126.com", "aa", "123456",formattedDate));
+        //userRepository.save(new User("bb5", "bb@126.com", "bb", "23456",formattedDate));
+        //userRepository.save(new User("cc6", "cc@126.com", "cc", "ccc123456",formattedDate));
+        Thread.sleep(2000);
+        Assert.assertEquals(6, userRepository.findAll().size());
+        Assert.assertEquals("bb", userRepository.findByUserNameOrEmail("bb2", "bb").getNickName());
         userRepository.delete(userRepository.findByUserName("aa1"));
     }
 }

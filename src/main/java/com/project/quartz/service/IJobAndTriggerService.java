@@ -1,7 +1,7 @@
 package com.project.quartz.service;
 
 import com.github.pagehelper.PageInfo;
-import com.project.quartz.entity.QrtzJobDetailsEntity;
+import com.project.quartz.entity.JobAndTrigger;
 
 /**
  * @ Author     ：zhangcx
@@ -11,5 +11,5 @@ import com.project.quartz.entity.QrtzJobDetailsEntity;
  * @Version: $version$
  */
 public interface IJobAndTriggerService {
-    public PageInfo<QrtzJobDetailsEntity> getJobAndTriggerDetails(int pageNum, int pageSize);
+    public PageInfo<JobAndTrigger> getJobAndTriggerDetails(int pageNum, int pageSize);
 }

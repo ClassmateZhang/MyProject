@@ -46,7 +46,9 @@ public class ResearchApplicationTests {
 		String ss = objectMapper.writeValueAsString(mapLadder);
 		System.out.println(ss);
 		String aa = objectMapper.writeValueAsString(mapAmount);
+		Map<String,String> ll =objectMapper.readValue(aa,Map.class);
 		System.out.println(aa);
+		System.out.println(ll+"--"+ll.get("amount1"));
 		map.put("ladder",ss);
 		map.put("amount",aa);
 		redisTemplate.opsForHash().putAll("red_packet",map);

@@ -1,5 +1,6 @@
 package com.example.research;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,18 +28,27 @@ public class ResearchApplicationTests {
 		Assert.assertEquals("111", stringRedisTemplate.opsForValue().get("aaa"));
 	}
 
+	/**
+	 * 向缓存中初始化相关红包数据
+	 * @throws Exception
+	 */
 	@Test
 	public void testObj() throws Exception {
-		Map<String,Object> map = new HashMap<>();
-		map.put("count",2000);
-		List ladder = new ArrayList();
-		ladder.add(1700);
-		ladder.add(300);
-		map.put("ladder",ladder);
-		List amount = new ArrayList();
-		amount.add(8.88);
-		amount.add(18.88);
-		map.put("amount",amount);
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("count",2000+"");
+		Map<String,String> mapLadder = new HashMap<String,String>();
+		mapLadder.put("ladder1","1700");
+		mapLadder.put("ladder2","300");
+		Map<String,String> mapAmount = new HashMap<String,String>();
+		mapAmount.put("amount1","8.88");
+		mapAmount.put("amount2","18.88");
+		ObjectMapper objectMapper = new ObjectMapper();
+		String ss = objectMapper.writeValueAsString(mapLadder);
+		System.out.println(ss);
+		String aa = objectMapper.writeValueAsString(mapAmount);
+		System.out.println(aa);
+		map.put("ladder",ss);
+		map.put("amount",aa);
 		redisTemplate.opsForHash().putAll("red_packet",map);
 		Map maps = redisTemplate.opsForHash().entries("red_packet");
 		System.out.println("完成！！！！"+maps);

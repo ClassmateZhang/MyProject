@@ -120,7 +120,7 @@ public class ResearchApplicationTests {
 			e.printStackTrace();
 		}
 	}
-	public static String chanceSelect(Map<String, String> ladder) {
+	public  String chanceSelect(Map<String, String> ladder) {
 		if (ladder == null || ladder.size() == 0)
 			return null;
 		//总数量

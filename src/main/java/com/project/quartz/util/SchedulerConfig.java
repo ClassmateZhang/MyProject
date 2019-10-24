@@ -1,8 +1,11 @@
 package com.project.quartz.util;
 
+import org.activiti.spring.boot.EndpointAutoConfiguration;
 import org.quartz.Scheduler;
 import org.quartz.ee.servlet.QuartzInitializerListener;
 import org.springframework.beans.factory.config.PropertiesFactoryBean;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
@@ -19,6 +22,8 @@ import java.util.Properties;
  * @Version: $version$
  */
 @Configuration
+@AutoConfigureBefore(EndpointAutoConfiguration.class)
+@AutoConfigureAfter(SchedulerConfig.class)
 public class SchedulerConfig {
     @Bean(name="SchedulerFactory")
     public SchedulerFactoryBean schedulerFactoryBean() throws IOException {

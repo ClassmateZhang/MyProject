@@ -1,7 +1,11 @@
 package com.example.research.filter;
 
+import org.activiti.spring.boot.EndpointAutoConfiguration;
 import org.apache.catalina.filters.RemoteIpFilter;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.AutoConfigureBefore;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +21,8 @@ import java.io.IOException;
  * @Version: $version$
  */
 @Configuration
+@AutoConfigureBefore(EndpointAutoConfiguration.class)
+@AutoConfigureAfter(WebConfiguration.class)
 public class WebConfiguration {
     @Bean
     public RemoteIpFilter remoteIpFilter() {
